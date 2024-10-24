@@ -4,12 +4,13 @@ import './App.css';
 
 function App() {
   const [allFixtures, setAllFixtures] = useState([]);
-  const LigasImportantes = [11, 2, 3, 5, 9, 10, 39, 61, 71, 78, 88, 128, 129, 130, 135, 140, 253, 268, 270,307,17,906,13];
+  const LigasImportantes = [11, 2, 3, 5, 9, 10, 13, 39, 61, 71, 78, 88, 128, 129, 130, 135, 140, 253, 268, 270,307,17,906];
 
-  const fetchFixtures = () => {
+  useEffect(() => {
     const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0];
-
+    const formattedDate = today.toISOString().split('T')[0]; 
+    
+    
     fetch(`https://v3.football.api-sports.io/fixtures?date=${formattedDate}`, {
       method: "GET",
       headers: {
@@ -23,18 +24,7 @@ function App() {
         console.log("Partidos del día:", data.response);
       })
       .catch((error) => console.error("Error fetching fixtures:", error));
-  };
-
-  useEffect(() => {
-    fetchFixtures(); 
-
-    const intervalId = setInterval(fetchFixtures, 900000); 
-
-    return () => clearInterval(intervalId); 
   }, []);
-
-
-  
 
   
   const filteredFixtures = allFixtures.filter(fixture =>
@@ -67,7 +57,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 className='futboe'>⚽🗣️  FUTBOE  🗣️⚽</h1> <br />
+        <h1 className='futboe'>🗣️⚽  FUTBOE  🗣️⚽</h1> <br />
         <h2> FIXTURE PARTIDOS DE HOY </h2>
       </header>
       
@@ -85,30 +75,25 @@ function App() {
                 <li key={fixture.fixture.id}>
                   <div>
                     <div className="teams">
-                    <div className="team home">
+                      <div className="team">
                         <img src={fixture.teams.home.logo} alt={fixture.teams.home.name} />
                         <strong>{fixture.teams.home.name}</strong>
                       </div>
                       <div className="score">
                         {fixture.goals.home} - {fixture.goals.away}
                       </div>
-                      <div className="team away">
+                      <div className="team">
                         <strong>{fixture.teams.away.name}</strong>
                         <img src={fixture.teams.away.logo} alt={fixture.teams.away.name} />
                       </div>
                     </div>
                     
-                    <p className='estadio'>Estadio: {fixture.fixture.venue.name}, {fixture.fixture.venue.city}</p>
+                    <p>Estadio: {fixture.fixture.venue.name}, {fixture.fixture.venue.city}</p>
                     <div className="time-played">
-  <center>
-    {fixture.fixture.status.long === "Match Finished" ? (
-      <span className="finished">Partido Terminado!⌚</span>
-    ) : fixture.fixture.status.long === "Not Started" ? (
-      <span>{`Empieza a las ${new Date(fixture.fixture.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}hs⚽`}</span>
+                    <center>
+    {fixture.fixture.status.long === "Match Finished" ? ( "Partido Terminado!⌚") : fixture.fixture.status.long === "Not Started" ? (`Empieza a las ${new Date(fixture.fixture.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}hs⚽`
     ) : (
-      <span className="live">{`${fixture.fixture.status.elapsed} minutos jugados `}
-      <img className="live-indicator" src="https://cdn-icons-png.flaticon.com/128/4768/4768748.png" alt="Live" />
-      </span>
+      `${fixture.fixture.status.elapsed} minutos jugados ⏳`
     )}
   </center>
 </div>
@@ -119,9 +104,6 @@ function App() {
           </div>
         ))}
       </div>
-      <footer>
-  <p className='derechos'>&copy; 2024 Futboe. Todos los derechos reservados.</p>
-</footer>
     </>
   );
 }
