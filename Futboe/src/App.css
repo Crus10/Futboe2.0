@@ -37,9 +37,16 @@
 }
 
 body {
+  display: flex;
   font-family: Arial, sans-serif;
   background-color: #015e04;
   color: #333;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0%;
+  
 }
 
 header {
@@ -50,8 +57,21 @@ header {
   border-radius: 8px;
   text-align: center;
   
+}
+
+.root {
+text-align: center;
+padding: 10px;
+align-items: center;
+justify-content: center;
+max-width: 1200px;
+  width: 80%; 
+  margin: 10px auto;
+
+
   
 }
+
 
 h1,h2 {
   background-color: #015e04;
@@ -69,27 +89,29 @@ h1,h2 {
 }
 
 .container {
+ 
   display: flex;
-  justify-content: space-between;
-  width: 100%; 
-  height: 100%; 
-  margin: 0 auto; 
-  padding: 20px;
+  width: 0%; 
+  margin: 10px auto;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background: #015e04;
-  max-width: 1200px; 
+  max-width: 1200px;
+  justify-content: center;
+  
   
 }
 
 .live-matches, .upcoming-matches {
-  width: 48%; 
+  width: 100%;
 }
 
 
 ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 li {
@@ -98,7 +120,9 @@ li {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+ 
 }
+
 
 li:last-child {
   border-bottom: none;
@@ -163,7 +187,8 @@ li:last-child {
   border: 1px solid #47b806; 
   border-radius: 8px; 
   padding: 10px; 
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
+  text-align: center;
   
 }
 

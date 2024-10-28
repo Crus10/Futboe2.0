@@ -66,6 +66,7 @@ function App() {
   
   return (
     <>
+      <div className="root">
       <header>
         <h1 className='futboe'>⚽🗣️  FUTBOE  🗣️⚽</h1> <br />
         <h2> FIXTURE PARTIDOS DE HOY </h2>
@@ -122,6 +123,7 @@ function App() {
       <footer>
   <p className='derechos'>&copy; 2024 Futboe. Todos los derechos reservados.</p>
 </footer>
+</div>
     </>
   );
 }
