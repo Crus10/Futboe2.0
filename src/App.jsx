@@ -33,7 +33,9 @@ function App() {
     return () => clearInterval(intervalId); 
   }, []);
 
-
+  const handleClick = () => {
+    window.open('https://github.com/Crus10', '_blank'); 
+};
   
 
   
@@ -122,6 +124,7 @@ function App() {
       </div>
       <footer>
   <p className='derechos'>&copy; 2024 Futboe. Todos los derechos reservados.</p>
+  <article onClick={handleClick} className='contacto'> Contacto </article>
 </footer>
 </div>
     </>

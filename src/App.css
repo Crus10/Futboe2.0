@@ -142,6 +142,7 @@ li:last-child {
   align-items: center;
   justify-content: space-between;
 
+
 }
 
 .team {
@@ -247,3 +248,15 @@ li:hover {
   transition: background-color 0.3s;
 }
 
+.contacto {
+  position: absolute; 
+    bottom: 20px; 
+    right: 20px; 
+    background-color: white; 
+    padding: 15px; 
+    border: 3px solid #070000; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
