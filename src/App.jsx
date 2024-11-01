@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [allFixtures, setAllFixtures] = useState([]);
-  const LigasImportantes = [11, 2, 3, 5, 9, 10, 39, 61, 71, 78, 88, 128, 129, 130, 135, 140, 253, 268, 270,307,17,906,13];
+  const LigasImportantes = [11, 2, 3, 5, 9, 10, 39, 61, 71, 78, 88, 128, 129, 130, 135, 140, 253,270,17,13];
 
   const fetchFixtures = () => {
     const today = new Date();
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     fetchFixtures(); 
 
-    const intervalId = setInterval(fetchFixtures, 900000); 
+    const intervalId = setInterval(fetchFixtures, 60000); 
 
     return () => clearInterval(intervalId); 
   }, []);
