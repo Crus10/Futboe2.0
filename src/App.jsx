@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     fetchFixtures(); 
 
-    const intervalId = setInterval(fetchFixtures, 900000); 
+    const intervalId = setInterval(fetchFixtures, 3600000); 
 
     return () => clearInterval(intervalId); 
   }, []);
