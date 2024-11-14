@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [allFixtures, setAllFixtures] = useState([]);
-  const LigasImportantes = [11, 2, 3, 5, 9, 10, 39, 128, 129, 130, 135, 140,17,13];
+  const LigasImportantes = [11, 2, 3, 5, 9, 10,34, 39, 128, 129, 130, 135, 140,17,13];
 
   const fetchFixtures = () => {
     const today = new Date();
